@@ -25,7 +25,6 @@ public class EditServlet extends HttpServlet {
      */
     public EditServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -33,6 +32,7 @@ public class EditServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
+
 
         Message m = em.find(Message.class, Integer.parseInt(request.getParameter("id")));
 
@@ -45,7 +45,7 @@ public class EditServlet extends HttpServlet {
 
 
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages.edit.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/edit.jsp");
         rd.forward(request, response);
 
     }
